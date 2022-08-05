@@ -3,10 +3,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "amazing-ui": [
-        "dist/amazing-ui/amazing-ui",
-        "dist/amazing-ui"
-      ]
+      "@amazing-ui": ["projects/amazing-ui/src/public-api"]
     },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",

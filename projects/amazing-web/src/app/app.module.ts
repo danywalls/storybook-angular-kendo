@@ -1,7 +1,7 @@
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AmazingUiModule } from 'amazing-ui';
+import { AmazingUiModule } from '@amazing-ui';
 
 import { AppComponent } from './app.component';
 
