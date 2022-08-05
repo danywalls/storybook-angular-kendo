@@ -1,6 +1,6 @@
 
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
-import { AmazingButtonComponent, AmazingUiModule } from '@amazing-ui';
+import { AmazingButtonComponent,  AmazingUiModule, ButtonSize } from '@amazing-ui';
 
 export default {
   title: 'amazing-ui/amazing-button',
@@ -18,4 +18,30 @@ const Template: Story<AmazingButtonComponent> = (args: AmazingButtonComponent) =
 
 export const Default = Template.bind({});
 
-Default.args = {} as Partial<AmazingButtonComponent>;
+Default.args = {
+
+  config: {
+    title: "Hello world"
+  }
+} as Partial<AmazingButtonComponent>;
+
+export const large = Template.bind({});
+
+large.args = {
+  config:  {
+    title: "I'm a bigger button",
+    size: ButtonSize.large
+  }
+} as Partial<AmazingButtonComponent>
+
+
+export const small = Template.bind({});
+
+small.args = {
+  config: {
+    title: "I'm small",
+    size: ButtonSize.small
+  }
+} as Partial<AmazingButtonComponent>
+
+

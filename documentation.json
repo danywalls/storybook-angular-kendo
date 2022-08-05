@@ -1,6 +1,57 @@
 {
     "pipes": [],
-    "interfaces": [],
+    "interfaces": [
+        {
+            "name": "IButtonConfig",
+            "id": "interface-IButtonConfig-9f3ef06d9025d403a64969c274fb954d4edd212987c2df75f81d9b4f6581a7d928305466beb0836e5e3b92b8db88e0e064349a17f64f17007b5dc25b8f0f60ea",
+            "file": "projects/amazing-ui/src/lib/amazing-button/amazing-button.component.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\n\n\nexport enum ButtonSize {\n  small = \"20px\",\n  medium = \"30px\",\n  large = \"50px\"\n}\nexport interface IButtonConfig {\n  title: string;\n  color: string;\n  background: string;\n  size: ButtonSize;\n}\n@Component({\n  selector: 'app-amazing-button',\n  templateUrl: './amazing-button.component.html',\n  styleUrls: ['./amazing-button.component.scss']\n})\nexport class AmazingButtonComponent implements OnInit {\n  @Output() changed = new EventEmitter<string>();\n  @Input() config!: IButtonConfig;\n  constructor() { }\n\n  ngOnInit() {\n  }\n\n}\n",
+            "properties": [
+                {
+                    "name": "background",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 12
+                },
+                {
+                    "name": "color",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
+                },
+                {
+                    "name": "size",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ButtonSize",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                },
+                {
+                    "name": "title",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 165,
+            "methods": []
+        }
+    ],
     "injectables": [
         {
             "name": "AmazingUiService",
@@ -27,11 +78,39 @@
     "guards": [],
     "interceptors": [],
     "classes": [],
-    "directives": [],
+    "directives": [
+        {
+            "name": "BiggerDirective",
+            "id": "directive-BiggerDirective-d8f1afdbb78a0f1a8dd570dafed395871ab8f341bb1546e1fc7cea545b279d9a0497a6fe3d32382a02801e1312fcdd77ca864394a4d92295959a64c9913afe42",
+            "file": "projects/amazing-ui/src/lib/directives/bigger.directive.ts",
+            "type": "directive",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Directive } from '@angular/core';\n\n@Directive({\n  selector: '[appBigger]'\n})\nexport class BiggerDirective {\n\n  constructor() { }\n\n}\n",
+            "selector": "[appBigger]",
+            "providers": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 6
+            }
+        }
+    ],
     "components": [
         {
             "name": "AmazingButtonComponent",
-            "id": "component-AmazingButtonComponent-a13aaf383c9b373c378c235693fc6978fa19a85d80be123a12f56a581df5973a92291a8df6f19bf78ce2ab4fa9b66a7b548d74c275fc8315eebb2a592ecc7c76",
+            "id": "component-AmazingButtonComponent-9f3ef06d9025d403a64969c274fb954d4edd212987c2df75f81d9b4f6581a7d928305466beb0836e5e3b92b8db88e0e064349a17f64f17007b5dc25b8f0f60ea",
             "file": "projects/amazing-ui/src/lib/amazing-button/amazing-button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -49,16 +128,24 @@
             "viewProviders": [],
             "inputsClass": [
                 {
-                    "name": "title",
-                    "defaultValue": "\"I'm a button\"",
+                    "name": "config",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 9,
-                    "type": "string",
+                    "line": 22,
+                    "type": "IButtonConfig",
                     "decorators": []
                 }
             ],
-            "outputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "changed",
+                    "defaultValue": "new EventEmitter<string>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "EventEmitter"
+                }
+            ],
             "propertiesClass": [],
             "methodsClass": [
                 {
@@ -67,7 +154,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 12,
+                    "line": 25,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -79,7 +166,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-amazing-button',\n  templateUrl: './amazing-button.component.html',\n  styleUrls: ['./amazing-button.component.scss']\n})\nexport class AmazingButtonComponent implements OnInit {\n  @Input() title = \"I'm a button\";\n  constructor() { }\n\n  ngOnInit() {\n  }\n\n}\n",
+            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\n\n\nexport enum ButtonSize {\n  small = \"20px\",\n  medium = \"30px\",\n  large = \"50px\"\n}\nexport interface IButtonConfig {\n  title: string;\n  color: string;\n  background: string;\n  size: ButtonSize;\n}\n@Component({\n  selector: 'app-amazing-button',\n  templateUrl: './amazing-button.component.html',\n  styleUrls: ['./amazing-button.component.scss']\n})\nexport class AmazingButtonComponent implements OnInit {\n  @Output() changed = new EventEmitter<string>();\n  @Input() config!: IButtonConfig;\n  constructor() { }\n\n  ngOnInit() {\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -94,12 +181,12 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 9
+                "line": 22
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<button>{{title}}</button>\n"
+            "templateData": "<button kendoButton  [style.height]=\"config.size\">{{config.title}}</button>\n"
         },
         {
             "name": "AppComponent",
@@ -167,13 +254,13 @@
     "modules": [
         {
             "name": "AmazingUiModule",
-            "id": "module-AmazingUiModule-65621ba01fad72f03dbe8321f5ce322ef27c950c08d9c30ef48efe2e07dd2fcc788aaa3ca79e904eea09f20dbb1fdaa33b19cda334e5dafbfa0125258695999f",
+            "id": "module-AmazingUiModule-1bcc8fac543dcd28b747881f41baf0fcaa2153e5dff928a7972eb411a769d06fe98f6b82424d8dda79b1bbff9e9503e0cd7b4fc461cc84efed7b5cc272ca610a",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/amazing-ui/src/lib/amazing-ui.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { AmazingButtonComponent } from './amazing-button/amazing-button.component';\n\n\n\n\n@NgModule({\n  declarations: [\n    AmazingButtonComponent\n  ],\n  imports: [\n  ],\n  exports: [\n    AmazingButtonComponent\n  ]\n})\nexport class AmazingUiModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { AmazingButtonComponent } from './amazing-button/amazing-button.component';\nimport { ButtonsModule } from '@progress/kendo-angular-buttons';\n\n\n\n@NgModule({\n  declarations: [\n    AmazingButtonComponent\n  ],\n  imports:[\n    ButtonsModule\n  ],\n  exports: [\n    AmazingButtonComponent\n  ]\n})\nexport class AmazingUiModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -284,7 +371,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/buttons/amazing-button.story.ts",
+                "file": "stories/buttons/amazing-button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -311,6 +398,16 @@
                 "defaultValue": "{\n  production: false\n}"
             },
             {
+                "name": "large",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/buttons/amazing-button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "require",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -329,10 +426,20 @@
                 "type": "literal type"
             },
             {
+                "name": "small",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/buttons/amazing-button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/buttons/amazing-button.story.ts",
+                "file": "stories/buttons/amazing-button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<AmazingButtonComponent>",
@@ -341,7 +448,37 @@
         ],
         "functions": [],
         "typealiases": [],
-        "enumerations": [],
+        "enumerations": [
+            {
+                "name": "ButtonSize",
+                "childs": [
+                    {
+                        "name": "small",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "20px"
+                    },
+                    {
+                        "name": "medium",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "30px"
+                    },
+                    {
+                        "name": "large",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "50px"
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "file": "projects/amazing-ui/src/lib/amazing-button/amazing-button.component.ts"
+            }
+        ],
         "groupedVariables": {
             "projects/amazing-ui/src/test.ts": [
                 {
@@ -385,12 +522,32 @@
                     "type": "literal type"
                 }
             ],
-            "stories/buttons/amazing-button.story.ts": [
+            "stories/buttons/amazing-button.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "stories/buttons/amazing-button.story.ts",
+                    "file": "stories/buttons/amazing-button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "large",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/buttons/amazing-button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "small",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/buttons/amazing-button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -400,7 +557,7 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "stories/buttons/amazing-button.story.ts",
+                    "file": "stories/buttons/amazing-button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<AmazingButtonComponent>",
@@ -433,7 +590,39 @@
             ]
         },
         "groupedFunctions": {},
-        "groupedEnumerations": {},
+        "groupedEnumerations": {
+            "projects/amazing-ui/src/lib/amazing-button/amazing-button.component.ts": [
+                {
+                    "name": "ButtonSize",
+                    "childs": [
+                        {
+                            "name": "small",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "20px"
+                        },
+                        {
+                            "name": "medium",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "30px"
+                        },
+                        {
+                            "name": "large",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "50px"
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "file": "projects/amazing-ui/src/lib/amazing-button/amazing-button.component.ts"
+                }
+            ]
+        },
         "groupedTypeAliases": {}
     },
     "routes": [],
@@ -447,7 +636,16 @@
                 "linktype": "component",
                 "name": "AmazingButtonComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/amazing-ui/src/lib/amazing-button/amazing-button.component.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "IButtonConfig",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -455,6 +653,15 @@
                 "type": "injectable",
                 "linktype": "injectable",
                 "name": "AmazingUiService",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/amazing-ui/src/lib/directives/bigger.directive.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "BiggerDirective",
                 "coveragePercent": 0,
                 "coverageCount": "0/2",
                 "status": "low"
@@ -529,7 +736,7 @@
                 "status": "low"
             },
             {
-                "filePath": "stories/buttons/amazing-button.story.ts",
+                "filePath": "stories/buttons/amazing-button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -539,7 +746,27 @@
                 "status": "low"
             },
             {
-                "filePath": "stories/buttons/amazing-button.story.ts",
+                "filePath": "stories/buttons/amazing-button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "large",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/buttons/amazing-button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "small",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/buttons/amazing-button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

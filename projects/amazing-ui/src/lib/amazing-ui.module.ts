@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { AmazingButtonComponent } from './amazing-button/amazing-button.component';
-
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
 
 
 
@@ -8,7 +8,8 @@ import { AmazingButtonComponent } from './amazing-button/amazing-button.componen
   declarations: [
     AmazingButtonComponent
   ],
-  imports: [
+  imports:[
+    ButtonsModule
   ],
   exports: [
     AmazingButtonComponent
